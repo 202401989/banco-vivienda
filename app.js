@@ -1,7 +1,7 @@
 const SUPABASE_URL = "https://ucaakufjfkdqwcryamee.supabase.co"
 const SUPABASE_KEY = "sb_publishable_wjBHSBRbVoK5imsfyvr2CA_913EwygH"
 
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY)
+var supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY)
 
 
 
@@ -12,7 +12,7 @@ let usuario = document.getElementById("usuario").value
 let password = document.getElementById("password").value
 
 const { data, error } = await supabase
-.from("Usuarios")
+.from("usuarios")
 .select("*")
 .eq("usuario",usuario)
 .eq("password",password)
@@ -46,7 +46,7 @@ async function verCuentas(){
 let id_cliente = localStorage.getItem("id_cliente")
 
 const { data, error } = await supabase
-.from("Cuentas")
+.from("cuentas")
 .select("*")
 .eq("id_cliente",id_cliente)
 
@@ -88,7 +88,7 @@ async function verCreditos(){
 let id_cliente = localStorage.getItem("id_cliente")
 
 const { data, error } = await supabase
-.from("Creditos")
+.from("creditos")
 .select("*")
 .eq("id_cliente",id_cliente)
 
@@ -132,7 +132,7 @@ async function verPagos(){
 let id_cliente = localStorage.getItem("id_cliente")
 
 const { data, error } = await supabase
-.from("Pagos")
+.from("pagos")
 .select(`
 monto_pago,
 fecha_pago,
@@ -169,7 +169,7 @@ let plazo = prompt("Ingrese plazo en meses")
 let id_cliente = localStorage.getItem("id_cliente")
 
 await supabase
-.from("Creditos")
+.from("creditos")
 .insert([{
 id_cliente:id_cliente,
 monto:monto,
@@ -194,7 +194,7 @@ let tipo = prompt("Tipo de cuenta (Ahorro o Monetaria)")
 let id_cliente = localStorage.getItem("id_cliente")
 
 await supabase
-.from("Cuentas")
+.from("cuentas")
 .insert([{
 id_cliente:id_cliente,
 tipo_cuenta:tipo,
@@ -213,7 +213,7 @@ async function buscarCliente(){
 let id = document.getElementById("buscarCliente").value
 
 const { data, error } = await supabase
-.from("Cuentas")
+.from("cuentas")
 .select("*")
 .eq("id_cliente",id)
 
