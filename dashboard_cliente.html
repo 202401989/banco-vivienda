@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Panel Cliente</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div class="login-container">
+
+<h1>Panel Cliente</h1>
+
+<button onclick="verCuentas()">Mis cuentas</button>
+<button onclick="verCreditos()">Mis créditos</button>
+<button onclick="verPagos()">Ver pagos</button>
+<button onclick="solicitarCredito()">Solicitar crédito</button>
+<button onclick="abrirCuenta()">Abrir cuenta</button>
+<button onclick="logout()">Cerrar sesión</button>
+
+<div id="resultado"></div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="app.js"></script>
+
+</body>
+
+</html>
